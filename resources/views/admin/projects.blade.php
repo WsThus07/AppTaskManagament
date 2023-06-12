@@ -73,7 +73,7 @@
                     <input type="hidden" name="confirm" value="yes">
                 </form>
 
-                    <a class="actions" href="{{ route('admin.viewTasks') }}"><i class="align-middle me-1" data-feather="eye"></i></a>
+                <a class="actions" href="{{ route('projects.show',$data->id) }}"><i class="align-middle me-1" data-feather="eye"></i></a>
             <a class="actions"  href="{{ route('projects.edit',$data->id) }}"><i class="align-middle me-1" data-feather="edit"></i></a>
 
         </td>

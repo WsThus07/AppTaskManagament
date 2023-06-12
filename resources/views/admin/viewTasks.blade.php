@@ -36,37 +36,28 @@
 <th><div id="th">start Date</div></th>
 <th><div id="th">end Date</div></th>
 <th><div id="th">Assigned to</div></th>
-<th><div id="th">Created At</div></th>
-<th><div id="th">Updated At</div></th>
+<th><div id="th">Created at</div></th>
+
 
     </tr>
 </thead>
 
     <tbody>
+        @foreach ($project_tasks as $data )
+
+
         <tr>
-          <td>1</td>
-          <td>Task 1</td>
-          <td>Description 1</td>
-          <td><span class="badge bg-success">Done</span></td>
-          <td>2023-05-01</td>
-          <td>2023-05-10</td>
-          <td>John Doe</td>
-          <td>2023-04-30</td>
-          <td>2023-05-01</td>
+          <td>{{ $data->id }}</td>
+          <td>{{ $data->name }}</td>
+          <td>{{ $data->description }}</td>
+          <td><span class="badge bg-success">{{ $data->status }}</span></td>
+          <td>{{ $data->start_date }}</td>
+          <td>{{ $data->end_date }}</td>
+          <td>{{ $data->FullName}}</td>
+          <td>{{ $data->created_at}}</td>
 
         </tr>
-        <tr>
-          <td>2</td>
-          <td>Task 2</td>
-          <td>Description 2</td>
-          <td><span class="badge bg-warning">In Progress</span></td>
-          <td>2023-05-05</td>
-          <td>2023-05-15</td>
-          <td>John Doe</td>
-          <td>2023-05-01</td>
-          <td>2023-05-10</td>
-
-        </tr>
+        @endforeach
         <!-- Add more rows for additional tasks -->
       </tbody>
 

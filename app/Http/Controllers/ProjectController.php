@@ -79,9 +79,17 @@ class ProjectController extends Controller
      * @param  \App\Models\Project  $project
      * @return \Illuminate\Http\Response
      */
-    public function show(Project $project)
+    public function show($id)
     {
-        //
+        //hnaaa n afficher tasks dyal dak projet lizad lmanager
+        $project_tasks = DB::table('tasks')
+        ->join('users', 'users.id', '=', 'tasks.user_id')
+        ->where('tasks.id_project', $id)
+            ->select('tasks.*', 'users.FullName')
+            ->get();
+        return view('admin.viewTasks', ["project_tasks" => $project_tasks]);
+
+
     }
 
     /**

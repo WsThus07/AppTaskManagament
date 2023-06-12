@@ -98,7 +98,13 @@
                                 <div class="dropdown-menu dropdown-menu-end">
                                     <a class="dropdown-item" href="Profile.html"><i class="align-middle me-1" data-feather="user"></i> Profile</a>
                                     <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="#">Log out</a>
+                                    <a class="dropdown-item" href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                        Logout
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
 
                                 </div>
                             </li>

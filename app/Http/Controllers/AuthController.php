@@ -4,11 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
+use App\Models\User;
 use App\Models\Project;
+use App\Models\Task;
 class AuthController extends Controller
 {
     public function showLoginForm()
@@ -17,7 +18,38 @@ class AuthController extends Controller
     }
 
 
+    public function analyticsDashboard()
+    {
+        $userCount = User::where('role', 'user')->count();
+        $projectCount = Project::count();
+        $managerCount = User::where('role', 'manager')->count();
 
+        return view('admin.dashboard', compact('userCount', 'projectCount', 'managerCount'));
+    }
+    public function analyticsDashboardEmploye()
+    {
+
+
+        $sessionData = Session::get('user');
+        $userId = $sessionData['id'];
+        $taskCount = Task::where('user_id', $sessionData['id'])->count();
+        /* $projects = Project::whereHas('tasks', function ($query) use ($userId) {
+            $query->where('user_id', $userId);
+        })->get();
+
+        $projectCount = $projects->count();*/
+        $projectCount = 2;
+        return view('user.dashboard', compact('projectCount', 'taskCount'));
+    }
+    public function analyticsDashboardManager()
+    {
+        $userCount = User::where('role', 'user')->count();
+        $sessionData = Session::get('user');
+        $projectCount = Project::where('id_manager', $sessionData['id'])->count();
+        $taskCount = Task::count();
+
+        return view('manager.dashboard', compact('userCount', 'projectCount', 'taskCount'));
+    }
 // ...
 
 public function login(Request $request)
@@ -54,18 +86,18 @@ public function login(Request $request)
 
         // Redirect to the appropriate dashboard based on the user's role
         if ($user->role === 'Admin') {
-            // Store user data in session
+                // Store user data in session
 
-            return redirect()->route('admin.dashboard');
-           
+                return $this->analyticsDashboard();
+
         } elseif ($user->role === 'Manager') {
 
-            return redirect()->route('manager.dashboard');
+                return $this->analyticsDashboardManager();
 
 
         } else {
 
-            return redirect()->route('user.dashboard');
+                return $this->analyticsDashboardEmploye();
         }
     } else {
         // Authentication failed
@@ -74,7 +106,14 @@ public function login(Request $request)
     }
 }
 
+    public function logout()
+    {
+        Auth::logout();
 
+        // Clear the user's session or perform any additional actions
+
+        return redirect()->route('login');
+    }
 // ...
 
 

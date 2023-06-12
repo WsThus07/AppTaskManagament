@@ -6,7 +6,9 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\ProjectTaskController;
 
-
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\ManagerDashboardController;
+use App\Http\Controllers\EmployedashboardController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -22,6 +24,13 @@ use App\Http\Controllers\AuthController;
 
 Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [AuthController::class, 'login']);
+
+
+Route::get('/admin/dashboard', [AuthController::class, 'analyticsDashboard'])->name('admin.dashboard');
+
+Route::get('/manager/dashboard', [AuthController::class, 'analyticsDashboardManager'])->name('manager.dashboard');
+
+Route::get('/user/dashboard', [AuthController::class, 'analyticsDashboardEmploye'])->name('user.dashboard');
 
 
 
@@ -48,11 +57,15 @@ Route::middleware('auth:web')->prefix('user')->group(function () {
 
 /* Dashboard*/
 
-use App\Http\Controllers\DashboardController;
 
-Route::get('/dashboard', [DashboardController::class, 'analyticsDashboard'])->name('admin.dashboard');
-use App\Http\Controllers\ManagerDashboardController;
 
+
+
+
+Route::post(
+    '/logout',
+    [AuthController::class, 'logout']
+)->name('logout');
 
 
 //--------------------------------------------------------------
