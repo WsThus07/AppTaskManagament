@@ -1,0 +1,278 @@
+/*wrapper element so column padding doesn't affect fixed header background*/
+
+
+  .container {
+    padding-top:22px;
+    max-height: 760px;
+    margin-left:30px;
+    overflow-y: scroll;
+    overflow-x: auto;
+  }
+  .custom-select select{
+    width: 190px;
+    text-align: center;
+  }
+  .flex-cnt{
+    justify-content: center;
+  align-items: center;
+  }
+  .cnt-cnt {
+    display: flex;
+  justify-content: center;
+  align-items: center;
+  }
+
+  .card-table {
+      width: min-content;
+}
+  #input_description{
+    width:90%;
+    height:100px;
+    text-align:justify;
+    padding:16px;
+  }
+  .current-info {
+    background-color:#94ff06;
+    padding: 10px;
+    font-weight: bold;
+    font-style: oblique;
+    color:black;
+  }
+  thead {
+    position: sticky;
+    top: 0;/*#94ff06*/
+    color:#5309dd;
+    background: white;
+   z-index: 1;
+
+}
+.search_container {
+  margin-top: 5px;
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#search-button:hover{
+  background-color: #94ff06;
+  color:black;
+}
+.actions{
+  padding:6px;
+  background:#5309dd;
+  color:white;
+  text-align:center;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 5px;
+  margin-top: 5px;
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.actions:hover{
+  background-color: #94ff06;
+  color:black;
+}
+#search-button{
+ border:none;
+ background:#5309dd;
+ color:white;
+ font-size:15px;
+ font-weight:bold;
+ padding:5px;
+ border-radius:5px;
+ margin-top:5px;
+ margin-left:5px;
+ margin-right:5px;
+ margin-bottom:5px;
+
+}
+
+.search__input:hover,
+        :focus {
+            padding: 12px 0;
+            outline: 0;
+            height:40px;
+            border: 1px solid transparent;
+            border-bottom: 1px solid #575756;
+            border-radius: 0;
+            background-position: 100% center;
+        }
+.search__input{
+  border: #e0e0e0a8;
+  background-color: #f1efef;
+  outline: 0;
+  height:30px;
+  width:50%;
+}
+th {
+    width: 33.33%; /* Set a fixed width or use a percentage */
+  }
+  td{
+    width:max-content;
+  }
+
+  .form-group{
+    padding:23px;
+    margin-left:54px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #e0e0e0;
+    background: #fff;
+    font-size: 15px;
+  }
+  .form-group label{
+    margin-right: 42px;
+    width:100px;
+  }
+  .logo {
+      width: max-content;
+      height: 200px;
+      margin-left: 19px;
+
+  }
+
+  .form-group-button button{
+    float:right;
+    margin-top: 32px;
+    margin-right:34px;
+    font-size: 17px;
+  }
+  .crd{
+    padding:65px;
+
+    border-radius: 10px;
+    width: min-content;
+  }
+  tr{
+    text-align: center;
+  }
+  .crd-calendar{
+    width: 50%;
+    border-radius: 10px;
+    padding-bottom:43px;
+  }
+  .search_container label{
+    margin-top: 32px;
+    margin-left: 34px;
+    font-size: 17px;
+
+  }
+  .search_container select{
+    margin-top: 32px;
+    margin-left: 34px;
+    font-size: 17px;
+    width: 150px;
+
+  }
+ .form-group-button-edit a{
+  float:right;
+  margin-top: 32px;
+  margin-right:34px;
+  font-size: 17px;
+ }
+  .dropdown-menu {
+    display: none;
+  }
+  .nav-link.dropdown-toggle:focus + .dropdown-menu {
+    display: block;
+  }
+
+  .Add_Tsk{
+    padding-left: 944px;
+
+  }
+  #th{
+    text-align:center;
+    border-top-left-radius: 13px;
+    font-size:18px;
+    font-weight:bold;
+    padding:16px;
+  }
+  .icons{
+   padding: 23px;
+  }
+  #th_Actions{
+    text-align:center;
+    border-top-left-radius: 13px;
+    font-size:18px;
+    font-weight:bold;
+    margin:11px;
+    width:130px;
+  }
+.addTask{
+  margin-rght: 0;;
+}
+/*
+.scroll-window-wrapper{
+    position:relative;
+  }
+  // element containing the table
+  .scroll-window{
+      height: 20rem;
+      overflow-x: hidden;
+      overflow-y: scroll;
+  }
+  .scroll-window table{
+    margin-bottom:0;
+  }
+      //fixed header background
+  .scroll-window:before{
+      content:"";
+      position: absolute;
+      width:100%;
+      height:2.5rem;
+      display: table;
+      z-index: 10;
+      background:rgba(170,170,170,0.8);
+  }
+
+
+  //the actual fixed header
+  table.fixed-header th div{
+    position: absolute;
+    margin-top: -.5rem;
+    z-index: 11;
+    color:#333;
+  }
+  table.fixed-header  thead tr{
+    height:2.5rem;
+  }
+  .user-list{
+      width:100%;
+  }
+  .user-list	td.text-right{
+      width:16rem;
+  }
+  */
+  /*-----experimental scrollbar styles-----*/
+  /* line 199, ../scss/main.scss */
+  #bodywrap ::-webkit-scrollbar {
+    width: 1rem;
+  }
+  /* line 202, ../scss/main.scss */
+  #bodywrap ::-webkit-scrollbar-button {
+    /* width:1rem;*/
+  }
+  /* line 205, ../scss/main.scss */
+  #bodywrap ::-webkit-scrollbar-track {
+    background-color: #eaeaea;
+    border-left: 1px solid #ccc;
+  }
+  /* line 212, ../scss/main.scss */
+  #bodywrap ::-webkit-scrollbar-thumb {
+    background-color: #ccc;
+  }
+  /* line 215, ../scss/main.scss */
+  #bodywrap ::-webkit-scrollbar-thumb:hover {
+    background-color: #aaa;
+  }
+
